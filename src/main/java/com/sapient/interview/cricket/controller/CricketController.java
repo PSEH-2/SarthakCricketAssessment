@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.sapient.interview.cricket.exceptionalhandling.ResourceNotFoundException;
 import com.sapient.interview.cricket.model.Response;
 import com.sapient.interview.cricket.service.CricketService;
 
@@ -16,7 +17,7 @@ public class CricketController {
 	CricketService cricketService;
 	
 	@RequestMapping("/status")
-	public Response getMatchDetails(@RequestParam("unique_id") String uniqueId ) {
+	public Response getMatchDetails(@RequestParam("unique_id") String uniqueId ) throws ResourceNotFoundException{
 		
 		return cricketService.getMatchDetails(uniqueId);
 	}
